@@ -20,6 +20,9 @@ if strcmp(mode,'w')
     end;
 end;
 
+if ~isempty(S.refID)
+    fprintf(fdbed, '# refID: %s\n', S.refID);
+end;
 for i = 1:size(S.R,1)
     fprintf(fdbed,'%s\t%d\t%d\n', S.segNames{S.R(i,1)}, S.R(i,2)-1, S.R(i,3));
 end;
