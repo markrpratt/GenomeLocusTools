@@ -1,5 +1,5 @@
 function [S,ia,ib] = intersectGLS(Sa,Sb,issorted)
-%% function S = intersectGLC(Sa,Sb)
+%% function [S,ia,ib] = intersectGLS(Sa,Sb,issorted)
 % intersect the locus set structures Sa and Sb returning merged S
 % if issorted==true (default), operation should be faster and return ia,ib
 % otherwise, a byte mask algo is used and ia, ib = []
