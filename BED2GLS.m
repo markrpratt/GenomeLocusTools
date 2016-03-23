@@ -39,7 +39,7 @@ BEDdata = textscan(fdbed,'%s %d32 %d32 %*[^\n]', ...
 fclose(fdbed);
 S.R = zeros(numel(BEDdata{1}),3,'int32');
 [S.segNames, ~, S.R(:,1)] = unique(BEDdata{1});
-strip chr prefix
+% strip chr prefix
 ischrseg = strncmp('chr',S.segNames,3);
 for n = 1:numel(S.segNames)
     if ischrseg(n)
