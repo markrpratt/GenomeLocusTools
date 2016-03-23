@@ -28,7 +28,7 @@ GLS.segNames = {...
     'chr22'
     'chrX'
     'chrY'
-    'chrM'};
+    'chrMT'};
 if isempty(inGLS.R)
     return;
 end;
