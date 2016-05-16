@@ -8,7 +8,6 @@ if isempty(inR) || isempty(maskR)
 end;
 minc = min([inR(:,1); maskR(:,1)]);
 maxc = max([inR(:,2); maskR(:,2)]);
-I1 = zeros(maxc-minc+1,1,'int8');
 maskI = zeros(maxc-minc+1,1,'int8');
 
 Score = zeros(size(inR,1),1,'single');
