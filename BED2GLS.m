@@ -40,12 +40,15 @@ fclose(fdbed);
 S.R = zeros(numel(BEDdata{1}),3,'int32');
 [S.segNames, ~, S.R(:,1)] = unique(BEDdata{1});
 % strip chr prefix
-ischrseg = strncmp('chr',S.segNames,3);
-for n = 1:numel(S.segNames)
-    if ischrseg(n)
-        S.segNames{n} = S.segNames{n}(4:end);
-    end;
-end;
+S.segNames = regexprep(S.segNames,'chr','');
+S.segNames = regexprep(S.segNames,'MT','M');
+% ischrseg = strncmp('chr',S.segNames,3);
+% for n = 1:numel(S.segNames)
+%     if ischrseg(n)
+%         S.segNames{n} = S.segNames{n}(4:end);
+%     end;
+% end;
+
 StdSegNames = { ...
     '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', ...
     '14', '15', '16', '17', '18', '19', '20', '21', '22', 'X', 'Y', 'M'};
