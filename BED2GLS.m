@@ -4,6 +4,7 @@ function S = BED2GLS(filename)
 % [segID, start, stop] of int32
 % segID are indices into S.segNames
 % warning: segment names are stripped of any preceding 'chr'
+% to do: read additional fields on deman
 
 S.refID = [];   % need to intelligently identify correct reference
 S.hdr = [];
