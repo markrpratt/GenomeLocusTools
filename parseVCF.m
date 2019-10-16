@@ -10,7 +10,7 @@ try
 catch fex
     disp(['unable to open ' filename]);
     return;
-end;
+end
 
 nhdr = 0;
 while 1
@@ -23,16 +23,16 @@ while 1
         examplerec= hdrstr;
         frewind(fdin);
         break;
-    end;
+    end
     nhdr = nhdr+1;
-end;
+end
 V.hdr = cell(nhdr,1);
 for i = 1:nhdr
     V.hdr{i} = fgets(fdin);
     if verbose
         fprintf(V.hdr{i});
-    end;
-end;
+    end
+end
 % determine number of samples in file
 % #CHROM POS ID REF ALT QUAL FILTER INFO FORMAT NA00001 NA00002 NA00003
 f = strsplit(V.hdr{end},'\t');
@@ -54,10 +54,11 @@ V.QUAL = D{6};
 [V.uFILTER, ~, V.jFILTER] = unique(D{7}); D{7} = []; V.jFILTER = int32(V.jFILTER);
 % Info is a potential memory hog and should be optional
 % [V.uINFO, ~, V.jINFO] = unique(D{8}); D{8} = []; V.jINFO = int32(V.jINFO);
+V.INFO = D{8};
 [V.uFORMAT, ~, V.jFORMAT] = unique(D{9}); D{9} = []; V.jFORMAT = int32(V.jFORMAT);
 for i = 10:numel(f)
     V.(['samp' f{i}]) = D{i};
-end;
+end
 clear D;
 toc;
 
